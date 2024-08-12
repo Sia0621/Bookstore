@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.bookstore.dao.UserDao">
+
+    <sql id="selectFields">
+        id, username, password, email, address, is_admin
+    </sql>
+
+    <sql id="insertFields">
+        username, password, email, address, is_admin
+    </sql>
+
+    <insert id="addUser">
+        insert into user (<include refid="insertFields"></include>)
+        values (#{username}, #{password}, #{email}, #{address}, #{isAdmin})
+    </insert>
+
+    <update id="updateUser">
+        update user
+        set username=#{username}, password=#{password}, email=#{email}, address=#{address}
+        where id=#{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete from user
+        where id = #{id}
+    </delete>
+
+    <select id="getUserById" resultType="com.demo.bookstore.entity.User">
+        select <include refid="selectFields"></include>
+        from user
+        where id = #{id}
+    </select>
+
+    <select id="getAllUsers" resultType="com.demo.bookstore.entity.User">
+        select <include refid="selectFields"></include>
+        from user
+    </select>
+
+</mapper>

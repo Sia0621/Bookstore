@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.bookstore.dao.BookDao">
+
+    <sql id="selectFields">
+        id, category, title, author, price, quantity, img_path
+    </sql>
+
+    <sql id="insertFields">
+        category, title, author, price, quantity, img_path
+    </sql>
+
+    <insert id="addBook">
+        insert into book (<include refid="insertFields"></include>)
+        values (#{category}, #{title}, #{author}, #{price}, #{quantity}, #{imgPath})
+    </insert>
+    <update id="updateBook">
+        update book
+        set category=#{category}, title=#{title}, author=#{author}, price=#{price}, quantity=#{quantity}, img_path=#{imgPath}
+        where id=#{id}
+    </update>
+    <delete id="deleteBookById">
+        delete from book
+        where id = #{id}
+    </delete>
+    <select id="getAllBooks" resultType="com.demo.bookstore.entity.Book">
+        select <include refid="selectFields"></include>
+        from book
+    </select>
+    <select id="getBookById" resultType="com.demo.bookstore.entity.Book">
+        select <include refid="selectFields"></include>
+        from book
+        where id = #{id}
+    </select>
+
+    <select id="getRandomBook" resultType="com.demo.bookstore.entity.Book">
+        SELECT <include refid="selectFields"></include>
+        FROM book
+        WHERE category = #{category}
+        ORDER BY RAND() LIMIT 4
+    </select>
+    <select id="getBooksByCategory" resultType="com.demo.bookstore.entity.Book">
+        SELECT <include refid="selectFields"></include>
+        FROM book
+        WHERE category = #{category}
+    </select>
+
+
+</mapper>
