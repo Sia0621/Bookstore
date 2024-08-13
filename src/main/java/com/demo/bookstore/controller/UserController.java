@@ -38,4 +38,14 @@ public class UserController {
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
     }
+
+    @GetMapping("/isUserExist/{email}")
+    public boolean isUserExist(@PathVariable String email) {
+        return userService.isUserExist(email);
+    }
+
+    @GetMapping("/isUserExistByUsername/{username}")
+    public boolean isUserExistByUsername(@PathVariable String username) {
+        return userService.isUserExistByUsername(username);
+    }
 }

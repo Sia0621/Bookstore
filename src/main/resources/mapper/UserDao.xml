@@ -37,4 +37,15 @@
         from user
     </select>
 
+    <select id="getUserByEmail" resultType="com.demo.bookstore.entity.User">
+        select <include refid="selectFields"></include>
+        from user
+        where email = #{email}
+    </select>
+    <select id="getUserByUsername" resultType="com.demo.bookstore.entity.User">
+        select <include refid="selectFields"></include>
+        from user
+        where username = #{username}
+    </select>
+
 </mapper>

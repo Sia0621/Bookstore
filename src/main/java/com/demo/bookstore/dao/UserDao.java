@@ -13,4 +13,6 @@ public interface UserDao {
     public int updateUser(User user);
     public int deleteUser(@Param("id") int id);
     public List<User> getAllUsers();
+    public User getUserByEmail(@Param("email") String email);
+    public User getUserByUsername(@Param("username") String username);
 }

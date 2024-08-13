@@ -69,5 +69,10 @@ class BookstoreApplicationTests {
         }
     }
 
+    @Test
+    void testGetUserByEmail() {
+        System.out.println(userDao.getUserByEmail("731402783@qq.com") != null);
+    }
+
 
 }

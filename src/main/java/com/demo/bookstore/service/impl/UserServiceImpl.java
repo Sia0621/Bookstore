@@ -37,4 +37,23 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) {
         userDao.updateUser(user);
     }
+
+    @Override
+    public boolean isUserExist(String email) {
+        return userDao.getUserByEmail(email) != null;
+    }
+
+    @Override
+    public boolean isUserExistByUsername(String username) {
+        return userDao.getUserByUsername(username) != null;
+    }
+
+    @Override
+    public User authenticate(String username, String password) {
+        User user = userDao.getUserByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        else return null;
+    }
 }
