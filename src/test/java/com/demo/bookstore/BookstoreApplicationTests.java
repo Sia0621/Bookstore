@@ -4,10 +4,7 @@ import com.demo.bookstore.dao.BookDao;
 import com.demo.bookstore.dao.MessageDao;
 import com.demo.bookstore.dao.OrderDao;
 import com.demo.bookstore.dao.UserDao;
-import com.demo.bookstore.entity.Book;
-import com.demo.bookstore.entity.Message;
-import com.demo.bookstore.entity.Order;
-import com.demo.bookstore.entity.User;
+import com.demo.bookstore.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -72,6 +69,14 @@ class BookstoreApplicationTests {
     @Test
     void testGetUserByEmail() {
         System.out.println(userDao.getUserByEmail("731402783@qq.com") != null);
+    }
+
+    @Test
+    void testSearchAllOrders() {
+        List<OrderResponse> orders = orderDao.searchAllOrders();
+        for (OrderResponse order : orders) {
+            System.out.println(order);
+        }
     }
 
 

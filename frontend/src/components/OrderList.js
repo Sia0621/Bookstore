@@ -4,10 +4,12 @@ function OrderList(){
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/orders`)
+        fetch(`http://localhost:8080/orders/search`)
             .then(response => response.json())
             .then(data => setOrders(data));
     }, []);
+
+    console.log(orders);
 
     const handleDelete = (id) => {
         fetch(`http://localhost:8080/orders/${id}`, {
@@ -43,9 +45,9 @@ function OrderList(){
                             {orders.map((order, index) => (
                                 <tr>
                                     <td>{order.userId}</td>
-                                    <td>{order.userId}</td>
+                                    <td>{order.username}</td>
                                     <td>{order.bookId}</td>
-                                    <td>{order.bookId}</td>
+                                    <td>{order.title}</td>
                                     <td>{order.quantity}</td>
                                     <td>
                                         <button onClick={() => handleDelete(order.id)}>Delete</button>

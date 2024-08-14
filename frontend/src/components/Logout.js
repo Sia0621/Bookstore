@@ -1,8 +1,10 @@
 import {useUser} from "./UserContext";
+import {useCart} from "./CartContext";
 import { useNavigate } from 'react-router-dom';
 
 function Logout(){
-    const { user, setUser } = useUser();
+    const { setUser } = useUser();
+    const { setCart } = useCart();
     const navigate = useNavigate();
 
     const handleLogout = async () => {
@@ -12,6 +14,7 @@ function Logout(){
                 credentials: 'include',
             });
 
+            setCart('');
             localStorage.clear();
 
             setUser(null);

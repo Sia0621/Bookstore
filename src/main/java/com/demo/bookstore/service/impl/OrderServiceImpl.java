@@ -2,6 +2,7 @@ package com.demo.bookstore.service.impl;
 
 import com.demo.bookstore.dao.OrderDao;
 import com.demo.bookstore.entity.Order;
+import com.demo.bookstore.entity.OrderResponse;
 import com.demo.bookstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void updateOrder(Order order) {
         orderDao.updateOrder(order);
+    }
+
+    @Override
+    public List<OrderResponse> searchAllOrders() {
+        return orderDao.searchAllOrders();
     }
 }

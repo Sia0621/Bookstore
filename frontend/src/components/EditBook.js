@@ -14,6 +14,10 @@ function EditBook(){
             .then(data => setBook(data));
     }, [id]);
 
+    const handleCategoryChange = (event) => {
+        const selectedCategory = event.target.value;
+    };
+
     return (
         <div>
             <h1 className="cms-header">Edit Book</h1>
@@ -25,8 +29,11 @@ function EditBook(){
                                 <label>Category:</label>
                             </td>
                             <td>
-                                <select name="category" id="category">
-
+                                <select name="category" id="category" value={book ? book.category : ''}
+                                        onChange={handleCategoryChange}>
+                                    <option value="best_seller">best_seller</option>
+                                    <option value="fiction">fiction</option>
+                                    <option value="nonfiction">nonfiction</option>
                                 </select>
                             </td>
                         </tr>

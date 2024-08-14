@@ -13,7 +13,6 @@ function AddUser(){
         event.preventDefault();
 
         try {
-            console.log(inputs);
             const response = await fetch('http://localhost:8080/users', {
                 method: 'POST',
                 headers: {

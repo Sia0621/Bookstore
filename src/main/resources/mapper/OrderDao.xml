@@ -32,5 +32,10 @@
         from book_order
         where id = #{id}
     </select>
+    <select id="searchAllOrders" resultType="com.demo.bookstore.entity.OrderResponse">
+        SELECT book_order.id, user.id as user_id, user.username, book.id as book_id, book.title, book_order.quantity FROM book_order
+        JOIN user ON book_order.user_id = user.id
+        JOIN book ON book_order.book_id = book.id;
+    </select>
 
 </mapper>

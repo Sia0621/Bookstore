@@ -2,6 +2,7 @@ package com.demo.bookstore.controller;
 
 
 import com.demo.bookstore.entity.Order;
+import com.demo.bookstore.entity.OrderResponse;
 import com.demo.bookstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,11 @@ public class OrderController {
     @GetMapping
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
+    }
+
+    @GetMapping("/search")
+        public List<OrderResponse> searchAllOrders() {
+        return orderService.searchAllOrders();
     }
 
     @GetMapping("/{id}")
