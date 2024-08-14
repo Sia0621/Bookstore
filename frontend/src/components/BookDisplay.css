@@ -1,0 +1,86 @@
+.book-display{
+    width: 90%;
+    margin: auto;
+}
+
+.bsHeader{
+    margin-bottom: 10px;
+}
+
+.bsHeader h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color:#0175c8;
+}
+
+.bsHeader a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    color:#0175c8;
+}
+
+.bsHeader a:hover{
+    color:#ff9d00;
+}
+
+.bsContent{
+    height: 500px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.bsItem{
+    width: 20%;
+    height: 280px;
+    float: left;
+    margin-left: 3.5%;
+    margin-bottom: 5%;
+}
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .bsItem{
+        width: 40%;
+        height: 350px;
+        float: left;
+        margin-left: 3.5%;
+        margin-bottom: 5%;
+    }
+}
+
+
+.bsItem .item-name a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#0175c8;
+}
+
+.bsItem .item-name a:hover{
+    color:#ff9d00;
+}
+
+.bsItem .item-price p{
+    font-family:'Courier New', Courier, monospace;
+    color:#0175c8;}
+
+.left-float{
+    float: left;
+}
+
+.right-float{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+
+.segment{
+    height: 50px;
+    width: 80%;
+    background: white;
+}
+
+a{
+    text-decoration: none;
+}
+

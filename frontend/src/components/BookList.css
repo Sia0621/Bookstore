@@ -1,0 +1,54 @@
+.ctgry-Header{
+    margin-bottom: 40px;
+    background-color: #b7e1ff;
+    padding: 5%;
+}
+
+.ctgry-Header h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    color:#0175c8;
+    text-align: center;
+}
+
+.book-display{
+    width: 90%;
+    margin: auto;
+}
+
+.clear{
+    clear: both;
+}
+
+.ctItem{
+    width: 20%;
+    height: 280px;
+    float: left;
+    margin-left: 3.5%;
+    margin-bottom: 20%;
+}
+
+.ctItem .item-name a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#0175c8;
+}
+
+.ctItem .item-name a:hover{
+    color:#ff9d00;
+}
+
+.ctItem .item-price p{
+    font-family:'Courier New', Courier, monospace;
+    color:#0175c8;
+}
+
+.item-img img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.item-seg{
+    height: 5px;
+}
+
+

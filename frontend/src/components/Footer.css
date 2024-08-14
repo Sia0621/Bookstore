@@ -1,0 +1,39 @@
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contactbutton {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #22a3ff;
+    margin-bottom: 20px;
+}
+
+
+#contact-us-link{
+    margin-top: 30px;
+    background-color: #d2ecff;
+}
+
+#contact-us-link h1{
+    padding-top: 10px;
+    color: #22a3ff;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#contact-us-link h3{
+    color: #dd6700;
+    text-align: center;
+    margin-top: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

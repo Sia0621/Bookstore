@@ -1,0 +1,51 @@
+
+.Header {
+}
+
+header {
+    padding-left: 20px;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 40px;
+    color: #0175c8;
+}
+
+nav {
+    background-color:#0175c8;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    font-size: 20px;
+    padding: 20px;
+}
+
+nav li:hover {
+    background-color: #b7e1ff;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-right{
+    margin-left: auto;
+    display: flex;
+}
+
+.nav-right li{
+    margin-right: 0;
+    padding: 20px;
+}

@@ -1,0 +1,100 @@
+#contactrow{
+    margin-top: 50px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#leftcolumn{
+    float: left;
+    width: 50%;
+}
+
+#rightcolumn{
+    float: left;
+    width: 50%;
+}
+
+@media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    #leftcolumn, #leftcolumn {
+        width: 100%;
+    }
+}
+
+h2.heading{
+    font-size: 40px;
+    color: #7FCAFF;
+}
+
+#contact-us-image{
+    width: 70%;
+    margin-top: 30px;
+}
+
+table{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.orange{
+    color: #dd6700;
+    width:50px;
+}
+
+.contact_link{
+    text-decoration: none;
+    color: #dd6700;
+}
+
+.contact_link:hover{
+    color: #61bdff;
+}
+
+.sendinfo{
+    margin-top: 35px;
+}
+
+.infotitle{
+    font-size: 20px;
+}
+
+.infoinput{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+    font-size: 20px;
+}
+
+.infomessage{
+    margin-top: 10px;
+    height: 100px;
+    width: 80%;
+    font-size: 20px;
+}
+
+.submitbutton {
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #7FCAFF;
+    margin-top: 3%;
+}
+
+.submitbutton:hover{
+    background-color: grey
+}
+
+.ctgry-Header h2{
+    text-align: center
+}
+
+.message p{
+    color: #7FCAFF;
+    font-size: 20px;
+}

@@ -1,0 +1,46 @@
+.d-left{
+    float: left;
+    width: 45%;
+}
+
+.d-left img{
+    margin-left: 20%;
+}
+
+.d-right{
+    float: right;
+    width: 50%;
+}
+
+.d-right h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.d-title{
+    padding-top: 75px;
+    padding-bottom: 20px;
+}
+
+.d-title h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.d-author{
+    padding-bottom: 50px;
+}
+
+.d-price{
+    padding-bottom: 30px;
+}
+
+
+
+.addToCartButton {
+    width: 60%;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    border: 0;
+    background: #22a3ff;
+}

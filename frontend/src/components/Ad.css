@@ -1,0 +1,21 @@
+.book-display{
+    width: 90%;
+    margin: auto;
+}
+
+.adHeader{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color:#0175c8;
+    margin-bottom: 10px;
+}
+
+.adImg{
+    width:100%;
+    text-align: center;
+}
+
+.adImg img{
+    margin: auto;
+    width:80%;
+}

@@ -1,0 +1,102 @@
+#bigBoxLogin
+{
+    margin: 0 auto;
+    margin-top: 150px;
+    padding: 20px 50px;
+    width: 400px;
+    height: 370px;
+    border-radius: 10px;
+    background-color: #0175c87a;
+    text-align: center;
+}
+.bigBox h1
+{
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.bigBox .inputBox
+{
+    margin-top: 30px;
+}
+.bigBox .inputBox .inputText
+{
+    margin-top: 20px;
+}
+.bigBox .inputBox .inputText input
+{
+    border: 0;
+    padding: 10px 10px;
+    border-bottom: 1px solid white;
+    background-color: #00000000;
+    color: white;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+.bigBox .loginButton
+{
+    margin-right: 30px;
+    margin-top: 15px;
+    width: 150px;
+    height: 40px;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    background-color: #0175c8;
+    font-size: 15px;
+}
+
+.m-left{
+    margin-left: 40px;
+
+}
+
+.register{
+    position: absolute;
+    margin-bottom: 1000px;
+    right: 10px;
+    color: #ffffff;
+    /*left:  calc(5% - 200px);*/
+    margin-right:800px;
+    /*bottom: 240px;*/
+    font-size: 13px;
+}
+.fgtpwd{
+    position: absolute;
+    margin-bottom: 1000px;
+    right: 10px;
+    color: #ffffff;
+    /*left:  calc(5% - 200px);*/
+    margin-right:666px;
+    /*bottom: 240px;*/
+    font-size: 13px;
+}
+
+#bigBoxRegister
+{
+    margin: 0 auto;
+    margin-top: 90px;
+    padding: 20px 100px;
+    background-color: #0175c87a;
+    width: 500px;
+    height: 540px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 90px;
+}
+
+.message-text{
+    color: white;
+    font-size: 12px
+}

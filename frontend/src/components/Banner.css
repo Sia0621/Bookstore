@@ -1,0 +1,12 @@
+.banner-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-dots li button:before {
+    color: #007bff; /* Custom color for dots */
+}
