@@ -1,20 +1,31 @@
 import './LoginAndRegister.css'
 import Header from "../components/Header";
 import {useState} from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 function Register(){
     const [inputs, setInputs] = useState({});
+    const [token, setToken] = useState();
     const [message, setMessage] = useState('');
 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs(values => ({...values, [name]: value, isAdmin: 0}))
+        setInputs(values => ({...values, [name]: value, isAdmin: false}))
+    }
+
+    function onRecaptchaChange(token) {
+        setToken(token);
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (!token) {
+            setMessage("This field is required!");
+            return;
+        }
 
         if (inputs.password !== inputs.password1) {
             setMessage("Passwords do not match");
@@ -32,12 +43,12 @@ function Register(){
 
             const { rePassword, ...dataToSubmit } = inputs;
 
-            const registerResponse = await fetch('http://localhost:8080/users', {
+            const registerResponse = await fetch('http://localhost:8080/users/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dataToSubmit),
+                body: JSON.stringify({...dataToSubmit, token:token}),
             });
 
             if (registerResponse.ok) {
@@ -49,8 +60,10 @@ function Register(){
                     email: "",
                     address: ""
                 });
+            } else if (registerResponse.status === 400) {
+                setMessage('reCAPTCHA verification failed');
             } else {
-                setMessage('Failed to register');
+                setMessage('Register failed');
             }
         } catch (error) {
             setMessage('An error occurred: ' + error.message);
@@ -80,6 +93,12 @@ function Register(){
                             <input type="text" id="address" name="address" value={inputs.address || ""} onChange={handleChange} required placeholder="Address"/>
                         </div>
                         <br/>
+                        <div style={{marginLeft:'20%'}}>
+                            <ReCAPTCHA
+                                sitekey="6LdedycqAAAAAESNdD3b871DpfCCwchFP_v7Rk0u"
+                                onChange={onRecaptchaChange}
+                            />
+                        </div>
                     </div>
                     <div className="message-text">
                         {message && <p>{message}</p>}

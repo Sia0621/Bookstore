@@ -1,10 +1,10 @@
 #bigBoxLogin
 {
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 120px;
+    margin-bottom: 90px;
     padding: 20px 50px;
     width: 400px;
-    height: 370px;
     border-radius: 10px;
     background-color: #0175c87a;
     text-align: center;
@@ -48,6 +48,7 @@
 {
     margin-right: 30px;
     margin-top: 15px;
+    margin-bottom: 20px;
     width: 150px;
     height: 40px;
     color: white;
@@ -90,7 +91,6 @@
     padding: 20px 100px;
     background-color: #0175c87a;
     width: 500px;
-    height: 540px;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 90px;

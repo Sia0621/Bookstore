@@ -6,7 +6,7 @@ function AddUser(){
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs(values => ({...values, [name]: value, isAdmin: true}))
+        setInputs(values => ({...values, [name]: value, isAdmin: 1}))
     }
 
     const handleSubmit = async (event) => {

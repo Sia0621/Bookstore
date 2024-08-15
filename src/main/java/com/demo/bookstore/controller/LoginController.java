@@ -1,6 +1,7 @@
 package com.demo.bookstore.controller;
 
 import com.demo.bookstore.entity.User;
+import com.demo.bookstore.service.RecaptchaService;
 import com.demo.bookstore.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,19 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RecaptchaService recaptchaService;
+
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody Map<String, Object> request, HttpSession session) {
         String username = (String) request.get("username");
         String password = (String) request.get("password");
+        String token = (String) request.get("token");
+
+        boolean isRecaptchaValid = recaptchaService.verifyRecaptcha(token);
+        if (!isRecaptchaValid) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
 
         User user = userService.authenticate(username, password);
         if (user != null) {

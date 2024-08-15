@@ -3,10 +3,12 @@ import Header from "../components/Header";
 import {useState} from "react";
 import { useUser } from "../components/UserContext"
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 function Login(){
     const [inputs, setInputs] = useState({});
+    const [token, setToken] = useState();
     const [message, setMessage] = useState('');
     const { setUser } = useUser();
     const navigate = useNavigate();
@@ -20,13 +22,18 @@ function Login(){
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!token) {
+            setMessage("This field is required!");
+            return;
+        }
+
         try {
             const response = await fetch('http://localhost:8080/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(inputs),
+                body: JSON.stringify({...inputs, token:token}),
                 credentials: 'include'
             });
             if (response.ok) {
@@ -34,21 +41,25 @@ function Login(){
                 setUser(user);
                 setMessage('Login successful');
 
-                console.log(user)
-
                 if(user.admin === true){
                     navigate("/admin-dashboard/index");
                 }else{
                     navigate("/");
                 }
 
-            } else {
+            } else if (response.status === 401) {
                 setMessage('Invalid credentials');
+            } else if (response.status === 400){
+                setMessage('reCAPTCHA verification failed');
             }
         } catch (error) {
             console.error('Login error:', error);
             setMessage('Login failed');
         }
+    }
+
+    function onRecaptchaChange(token) {
+        setToken(token);
     }
 
     return(
@@ -68,9 +79,15 @@ function Login(){
                                    value={inputs.password || ""} onChange={handleChange}/>
                         </div>
                         <br/>
-                    </div>
-                    <div className="message-text">
-                        {message && <p>{message}</p>}
+                        <div style={{marginLeft: '13%'}}>
+                            <ReCAPTCHA
+                                sitekey="6LdedycqAAAAAESNdD3b871DpfCCwchFP_v7Rk0u"
+                                onChange={onRecaptchaChange}
+                            />
+                        </div>
+                        <div className="message-text">
+                            {message && <p>{message}</p>}
+                        </div>
                     </div>
                     <div>
                         <input type="submit" id="login" name="login" value="LOG IN" className="loginButton m-left"/>

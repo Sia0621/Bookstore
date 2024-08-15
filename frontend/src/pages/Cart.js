@@ -45,7 +45,7 @@ function Cart(){
         alert('Orders created successfully!');
     }
 
-    const handleAdd = (id) => {
+    const handleAdd = (id) =>{
         setCart((prevCart) =>
             prevCart.map((item) =>
                 item.id === id
@@ -55,7 +55,7 @@ function Cart(){
         );
     };
 
-    const handleSub = (id) => {
+    const handleSub = (id) =>{
         setCart((prevCart) =>
             prevCart.map((item) =>
                 item.id === id && item.quantity > 1

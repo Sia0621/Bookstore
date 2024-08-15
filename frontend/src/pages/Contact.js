@@ -2,9 +2,11 @@ import './Contact.css'
 import Header from "../components/Header";
 import img from '../images/contact-us-image.png'
 import { useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Contact(){
     const [inputs, setInputs] = useState({});
+    const [token, setToken] = useState();
     const [message, setMessage] = useState('');
 
     const handleChange = (event) => {
@@ -13,20 +15,31 @@ function Contact(){
         setInputs(values => ({...values, [name]: value}))
     }
 
+    function onRecaptchaChange(token) {
+        setToken(token);
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
+
+        if (!token) {
+            setMessage("This field is required!");
+            return;
+        }
+
         fetch('http://localhost:8080/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(inputs),
+            body: JSON.stringify({...inputs, token:token}),
         })
             .then(response => {
                 if (response.ok) {
                     setMessage('Your message has been submitted successfully.');
                     setInputs('');
+                } else if (response.status === 400){
+                    setMessage('reCAPTCHA verification failed');
                 } else {
                     setMessage('Failed to submit the message.');
                 }
@@ -84,6 +97,12 @@ function Contact(){
                             <input type="text" name="subject" className="infoinput" value={inputs.subject || ""} onChange={handleChange} required/><br/>
                             <label htmlFor="message" className="infotitle">Message</label><br/>
                             <textarea type="text" name="message" className="infomessage" value={inputs.message || ""} onChange={handleChange} required></textarea><br/>
+                        </div>
+                        <div style={{marginTop:'15px'}}>
+                            <ReCAPTCHA
+                                sitekey="6LdedycqAAAAAESNdD3b871DpfCCwchFP_v7Rk0u"
+                                onChange={onRecaptchaChange}
+                            />
                         </div>
                         <div className="message">
                             {message && <p>{message}</p>}

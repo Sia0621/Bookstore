@@ -80,7 +80,7 @@ table{
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
-    margin: 4px 2px;
+    margin: 2px;
     cursor: pointer;
     background-color: #7FCAFF;
     margin-top: 3%;
@@ -96,5 +96,5 @@ table{
 
 .message p{
     color: #7FCAFF;
-    font-size: 20px;
+    font-size: 15px;
 }
